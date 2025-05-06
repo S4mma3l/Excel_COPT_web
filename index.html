@@ -3,40 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Listas COPT Web</title>
+    <title>Gestor de Listas COPT</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Podrías añadir un favicon aquí -->
 </head>
 <body>
-    <div class="container">
-        <h1>Gestor de Listas COPT Web</h1>
+    <header>
+        <h1 class="app-title">Gestor de Listas COPT</h1>
+    </header>
 
-        <section id="paso1">
-            <h2>Paso 1: Procesar Archivos y Generar "Fusion.xlsx"</h2>
-            <p>Selecciona los archivos Excel individuales a procesar (excluye tu archivo 'Fusion.xlsx' si ya existe y el archivo destino).</p>
-            <input type="file" id="inputArchivosProcesar" multiple accept=".xlsx">
-            <button id="btnProcesar">Procesar Archivos</button>
-            <div id="logPaso1" class="log-area"></div>
-            <button id="btnDescargarFusion" class="secondary" style="display:none;">Descargar Fusion.xlsx</button>
+    <main class="container">
+        <section class="section-card" id="paso1-section">
+            <h2>Paso 1: Procesar y Generar "Fusion.xlsx"</h2>
+            <p>Selecciona los archivos Excel (múltiples permitidos) para eliminar "mm", consolidar datos y asignar materiales.</p>
+            
+            <div class="file-input-wrapper">
+                <input type="file" id="inputArchivosProcesar" multiple accept=".xlsx">
+            </div>
+            
+            <div class="button-container">
+                <button id="btnProcesar">Procesar Archivos</button>
+                <button id="btnDescargarFusion" class="download-button" style="display:none;">Descargar Fusion.xlsx</button>
+            </div>
+
+            <div class="log-area-wrapper">
+                <h3>Registro de Proceso (Paso 1):</h3>
+                <div id="logPaso1" class="log-area"></div>
+            </div>
         </section>
 
-        <hr>
+        <hr class="section-divider">
 
-        <section id="paso2">
-            <h2>Paso 2: Cargar "Fusion.xlsx" en Hoja Destino</h2>
-            <p>Selecciona tu archivo "Fusion.xlsx" generado (o el que tengas):</p>
-            <input type="file" id="inputFusion" accept=".xlsx">
-            <p>Selecciona el archivo Excel DESTINO (con la hoja 'LISTA'):</p>
-            <input type="file" id="inputDestino" accept=".xlsx">
-            <button id="btnInsertar">Insertar Datos en Destino</button>
-            <div id="logPaso2" class="log-area"></div>
-            <button id="btnDescargarDestinoModificado" class="secondary" style="display:none;">Descargar Archivo Destino Modificado</button>
+        <section class="section-card" id="paso2-section">
+            <h2>Paso 2: Insertar "Fusion.xlsx" en Destino</h2>
+            <p>Selecciona tu archivo "Fusion.xlsx" y el archivo Excel destino donde se insertarán los datos en la hoja "LISTA".</p>
+            
+            <div class="file-input-wrapper">
+                <label for="inputFusion" class="input-label">Archivo Fusion.xlsx:</label>
+                <input type="file" id="inputFusion" accept=".xlsx">
+            </div>
+            
+            <div class="file-input-wrapper">
+                <label for="inputDestino" class="input-label">Archivo Excel Destino:</label>
+                <input type="file" id="inputDestino" accept=".xlsx">
+            </div>
+
+            <div class="button-container">
+                <button id="btnInsertar">Insertar en Destino</button>
+                <button id="btnDescargarDestinoModificado" class="download-button" style="display:none;">Descargar Destino Modificado</button>
+            </div>
+
+            <div class="log-area-wrapper">
+                <h3>Registro de Proceso (Paso 2):</h3>
+                <div id="logPaso2" class="log-area"></div>
+            </div>
         </section>
+    </main>
 
-        <footer>
-            <p>Desarrollado por S4mma3l</p>
-            <p>Versión: Web Alpha</p>
-        </footer>
-    </div>
+    <footer class="app-footer">
+        <p>Desarrollado por S4mma3l</p>
+        <p>Versión Web Alpha</p>
+    </footer>
 
     <script src="lib/xlsx.full.min.js"></script>
     <script src="script.js"></script>
