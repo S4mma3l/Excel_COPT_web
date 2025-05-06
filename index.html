@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Listas COPT Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestor de Listas COPT Web</h1>
+
+        <section id="paso1">
+            <h2>Paso 1: Procesar Archivos y Generar "Fusion.xlsx"</h2>
+            <p>Selecciona los archivos Excel individuales a procesar (excluye tu archivo 'Fusion.xlsx' si ya existe y el archivo destino).</p>
+            <input type="file" id="inputArchivosProcesar" multiple accept=".xlsx">
+            <button id="btnProcesar">Procesar Archivos</button>
+            <div id="logPaso1" class="log-area"></div>
+            <button id="btnDescargarFusion" class="secondary" style="display:none;">Descargar Fusion.xlsx</button>
+        </section>
+
+        <hr>
+
+        <section id="paso2">
+            <h2>Paso 2: Cargar "Fusion.xlsx" en Hoja Destino</h2>
+            <p>Selecciona tu archivo "Fusion.xlsx" generado (o el que tengas):</p>
+            <input type="file" id="inputFusion" accept=".xlsx">
+            <p>Selecciona el archivo Excel DESTINO (con la hoja 'LISTA'):</p>
+            <input type="file" id="inputDestino" accept=".xlsx">
+            <button id="btnInsertar">Insertar Datos en Destino</button>
+            <div id="logPaso2" class="log-area"></div>
+            <button id="btnDescargarDestinoModificado" class="secondary" style="display:none;">Descargar Archivo Destino Modificado</button>
+        </section>
+
+        <footer>
+            <p>Desarrollado por S4mma3l</p>
+            <p>Versión: Web 1.0</p>
+        </footer>
+    </div>
+
+    <script src="lib/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

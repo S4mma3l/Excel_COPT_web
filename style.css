@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --md-primary-color: #6200EE; /* Morado Material Design */
+    --md-primary-variant-color: #3700B3; /* Variante más oscura */
+    --md-secondary-color: #03DAC6; /* Teal Material Design (acento) */
+    --md-secondary-variant-color: #018786; /* Variante más oscura del acento */
+    
+    --md-background-color: #FFFFFF;
+    --md-surface-color: #FFFFFF;
+    --md-error-color: #B00020;
+
+    --md-on-primary-color: #FFFFFF;
+    --md-on-secondary-color: #000000;
+    --md-on-background-color: #000000;
+    --md-on-surface-color: #000000;
+    --md-on-error-color: #FFFFFF;
+
+    --md-text-primary-on-background: rgba(0, 0, 0, 0.87); /* Texto principal oscuro */
+    --md-text-secondary-on-background: rgba(0, 0, 0, 0.60); /* Texto secundario oscuro */
+    --md-text-disabled-on-background: rgba(0, 0, 0, 0.38); /* Texto deshabilitado */
+    
+    --md-text-primary-on-light: rgba(0, 0, 0, 0.87);
+    --md-text-secondary-on-light: rgba(0, 0, 0, 0.54);
+
+    --md-divider-on-light: rgba(0, 0, 0, 0.12);
+    --md-divider-on-dark: rgba(255, 255, 255, 0.12);
+
+    --font-family: 'Roboto', sans-serif;
+    --border-radius: 4px; /* Bordes redondeados Material */
+
+    /* Elevaciones (sombras) - sutiles para empezar */
+    --elevation-dp1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --elevation-dp2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --elevation-dp4: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    --elevation-dp8: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    background-color: #ECEFF1; /* Un gris azulado muy claro, típico de fondos Material */
+    color: var(--md-text-primary-on-background);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Para permitir scroll si el contenido es largo */
+    min-height: 100vh;
+    padding: 24px; /* Padding consistente con Material */
+    box-sizing: border-box;
+    line-height: 1.5; /* Espaciado de línea Material */
+}
+
+.container {
+    background-color: var(--md-surface-color);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--elevation-dp2); /* Sombra base para el contenedor "card" */
+    width: 100%;
+    max-width: 700px; /* Ancho máximo para legibilidad */
+    animation: fadeInScaleUp 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animación Material */
+}
+
+@keyframes fadeInScaleUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+h1 { /* Título de la app, podría ser como un AppBar */
+    color: var(--md-on-primary-color); /* Si el fondo fuera --md-primary-color */
+    color: var(--md-primary-color); /* Para fondo blanco */
+    text-align: left; /* Títulos suelen estar alineados a la izquierda */
+    font-weight: 400; /* Display/Headline Material */
+    font-size: 1.5rem; /* `headline6` en Material */
+    margin: -24px -24px 24px -24px; /* Extender al borde del card si es un header */
+    padding: 16px 24px;
+    background-color: var(--md-surface-color); /* O var(--md-primary-color) si quieres un header coloreado */
+    border-bottom: 1px solid var(--md-divider-on-light);
+    box-shadow: var(--elevation-dp1); /* Sombra sutil para el header */
+}
+
+h2 { /* Títulos de sección */
+    color: var(--md-text-primary-on-light);
+    font-weight: 500; /* Subtitle1 Material */
+    font-size: 1.125rem; /* `subtitle1` en Material */
+    margin-top: 32px; /* Mayor espaciado vertical */
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    /* border-bottom: 1px solid var(--md-divider-on-light); */ /* Opcional para secciones */
+}
+h2:first-of-type {
+    margin-top: 0; /* Quitar margen superior del primer h2 después del h1 */
+}
+
+
+p {
+    font-size: 0.9375rem; /* `body2` en Material */
+    margin-bottom: 16px;
+    color: var(--md-text-secondary-on-light);
+}
+
+/* Inputs estilo "Outlined Text Field" (simulado) */
+.input-field-container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 14px 16px; /* Material recomienda padding vertical alto */
+    font-size: 1rem; /* `subtitle1` para texto de input */
+    color: var(--md-text-primary-on-light);
+    background-color: rgba(0,0,0,0.04); /* Fondo sutil para el input */
+    border: 1px solid rgba(0,0,0,0.12); /* Borde más sutil */
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+input[type="file"]:hover {
+    background-color: rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.30);
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border: 2px solid var(--md-primary-color) !important; /* Borde de foco */
+    background-color: var(--md-surface-color);
+    padding: 13px 15px; /* Ajustar padding para el borde de 2px */
+}
+
+/* Estilo para el botón interno de "Seleccionar archivo" */
+input[type="file"]::file-selector-button {
+    margin-right: 16px;
+    padding: 8px 12px; /* Ajustar si es necesario */
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.875rem; /* `button` text style */
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: var(--elevation-dp1);
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--md-primary-variant-color);
+    box-shadow: var(--elevation-dp2);
+}
+
+
+button {
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+    border: none;
+    padding: 10px 20px; /* Padding estándar para botones */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem; /* `button` text style */
+    font-weight: 500;
+    text-transform: uppercase; /* Botones Material suelen ser uppercase */
+    letter-spacing: 0.06em; /* Espaciado de letras Material */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    box-shadow: var(--elevation-dp2);
+    margin-top: 8px; /* Margen para separar de otros elementos */
+    margin-right: 8px; /* Margen entre botones */
+    min-width: 88px; /* Ancho mínimo para botones */
+}
+
+button:hover {
+    background-color: var(--md-primary-variant-color);
+    box-shadow: var(--elevation-dp4);
+    transform: translateY(-1px);
+}
+
+button:active {
+    box-shadow: var(--elevation-dp1); /* Sombra menor al presionar */
+    transform: translateY(0px);
+}
+
+button:disabled {
+    background-color: rgba(0,0,0,0.12); /* Color deshabilitado Material */
+    color: var(--md-text-disabled-on-background);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button.secondary { /* Botón de acento o acción secundaria */
+    background-color: var(--md-secondary-color);
+    color: var(--md-on-secondary-color); /* Negro sobre teal */
+}
+button.secondary:hover {
+    background-color: var(--md-secondary-variant-color);
+}
+
+hr {
+    margin: 32px 0;
+    border: 0;
+    border-top: 1px solid var(--md-divider-on-light);
+}
+
+.log-area {
+    background-color: #f5f5f5; /* Fondo gris claro para logs */
+    border: 1px solid var(--md-divider-on-light);
+    padding: 16px;
+    margin-top: 16px;
+    min-height: 60px;
+    max-height: 180px;
+    overflow-y: auto;
+    font-size: 0.8125rem; /* `caption` text style */
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+    border-radius: var(--border-radius);
+    line-height: 1.6;
+    color: var(--md-text-secondary-on-light);
+}
+/* Estilo para cada entrada del log */
+.log-entry {
+    padding: 2px 0;
+    border-bottom: 1px dotted rgba(0,0,0,0.05);
+}
+.log-entry:last-child {
+    border-bottom: none;
+}
+.log-entry.log-error { color: var(--md-error-color); font-weight: 500; }
+.log-entry.log-success { color: #00695C; /* Verde azulado oscuro */ } /* Ajustar color de éxito */
+.log-entry.log-warning { color: #FFA000; /* Ámbar */ }
+
+
+footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--md-divider-on-light);
+    font-size: 0.8125rem; /* `caption` text style */
+    color: var(--md-text-secondary-on-light);
+}
+
+footer p {
+    margin: 6px 0;
+    color: inherit;
+}
+
+/* Opcional: si usas la clase input-button-group del ejemplo anterior */
+.input-button-group {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que el botón pase abajo en pantallas pequeñas */
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.input-button-group .input-field-container,
+.input-button-group input[type="file"] {
+    flex-grow: 1;
+    margin-bottom: 0; /* Quitar margen si está en grupo */
+}
+.input-button-group button {
+    margin-top: 0;
+    white-space: nowrap;
+    flex-shrink: 0; /* Evitar que el botón se encoja demasiado */
+}
+
+section { /* Las secciones no necesitan mucho estilo si el contenedor ya es un "card" */
+    margin-bottom: 16px;
+}
